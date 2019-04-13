@@ -1,4 +1,14 @@
+import java.awt.*;
 
-public class Board {
+import javax.swing.*;
+
+public class Board 
+{
+	public Board()
+	{
+		
+		
+		
+	}
 
 }
