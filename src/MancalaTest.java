@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -25,12 +26,21 @@ public class MancalaTest {
 		
 		if(click ==0) {
 			//do something
+			RoundRectangle2D outShape = new RoundRectangle2D.Double();
+			//frame.add(outShape);
+			
+			
+			frame.getContentPane().setBackground(Color.YELLOW);
 		}else if(click==1) {
 			//
+			
+			frame.getContentPane().setBackground(Color.YELLOW);
 		}else if(click ==2) {
 			
-		}else {
 			
+			frame.getContentPane().setBackground(Color.RED);
+		}else {
+			frame.getContentPane().setBackground(Color.RED);
 		}
 		//frame.setBounds(400, 400, 600, 300);
 //		JPanel panel = new JPanel();
@@ -48,7 +58,7 @@ public class MancalaTest {
 //		panel.add(b3);
 //		panel.setBackground(Color.RED);
 //		frame.add(panel);
-		frame.getContentPane().setBackground(Color.RED);
+		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		
