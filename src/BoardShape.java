@@ -30,8 +30,22 @@ public class BoardShape {
 		this.listPits[b][c]= newEllipse;
 	}
 	
-	public void drawMancalaBoard(Graphics2D g2) {
-		RoundRectangle2D outShape = new RoundRectangle2D.Double();
+	public void drawMancalaBoard(Graphics2D g2,Pit p) {
+		int x =200;
+		int y=100;
+		int increment =120;
+		RoundRectangle2D outShape = new RoundRectangle2D.Double(x,y,width,height,x,y);
+		g2.draw(outShape);
+		
+		for(int i=0;i<PITS_EACH_SIDE/2;i++) {
+			for(int k=0;k<NUMBERS_OF_PLAYERS;k++) {
+				if(k==0) {
+					setEllipse(p.drawpit(g2, increment),k,i);
+				}else {
+					setEllipse(p.drawpit2(g2, increment),k,i);
+				}	
+			}
+		}
 		
 	}
 

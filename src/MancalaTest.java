@@ -16,6 +16,9 @@ public class MancalaTest {
 	public static void main(String[] args) {
 		int frameX=600;
 		int frameY=400;
+		
+		BoardShape board = new BoardShape(500,1000);
+		
 		JFrame frame = new JFrame("Mancala game");
 		
 		//setBackground(Color.RED);
@@ -25,11 +28,10 @@ public class MancalaTest {
 				,JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE,null,buttons,buttons[0]); 
 		
 		if(click ==0) {
-			//do something
-			RoundRectangle2D outShape = new RoundRectangle2D.Double();
-			//frame.add(outShape);
-			
-			
+			frame.setSize(1500, 700);
+			Pit pitti = new Pit(3);
+			ViewController view = new ViewController(board,pitti);
+			frame.add(view);					
 			frame.getContentPane().setBackground(Color.YELLOW);
 		}else if(click==1) {
 			//
