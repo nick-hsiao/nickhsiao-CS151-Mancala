@@ -1,29 +1,14 @@
+public class Player{
 
-public class Player {
-	private String name;
-	private int score;
-	
-	public Player(String a, int b) {
-		this.name=a;
-		this.score=b;
-	}
-	
-	
+    public boolean playerOne;
 
-	public String getName() {
-		return name;
-	}
+    public Player(boolean b){
+        this.playerOne = b;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public boolean isPlayerOne(){
+        return playerOne;
+    }
 
-	public int getScore() {
-		return score;
-	}
-
-	public void setScore(int score) {
-		this.score = score;
-	}
 
 }
