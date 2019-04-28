@@ -14,7 +14,7 @@ import java.awt.geom.RoundRectangle2D;
  */
 public class Pit 
 {
-	private Ellipse2D space;
+	//private Ellipse2D space;
 	private int numberOfStones;
 	private static int x=200;
 	private static int y=100;
@@ -22,7 +22,7 @@ public class Pit
 	
 	public Pit(int numOfStones)
 	{
-		space = new Ellipse2D.Double();
+		//space = new Ellipse2D.Double();
 		this.setNumberOfStones(numOfStones);
 		
 	}
@@ -65,7 +65,7 @@ public class Pit
 	
 	public Ellipse2D drawpit2(Graphics2D g2,int increment) {
 		
-		Ellipse2D.Double ellp = new Ellipse2D.Double(x+30+count, y+275, 90, 210);
+		Ellipse2D.Double ellp = new Ellipse2D.Double(x + 30 + count, y + 275, 90, 210);
 		g2.draw(ellp);
 		return ellp;
 	}
