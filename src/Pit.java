@@ -1,34 +1,24 @@
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.geom.Rectangle2D;
+
+import java.awt.geom.Ellipse2D;
 
 /**
- * 
- */
-
-/**
- * @author alehu
+ * Defines the shape of the Pit
+ * Can include more in here, like the number of stones in the pit..
  *
  */
-public class Pit 
-{
-	private int numberOfStones;
-	
-	public Pit(int numOfStones)
+public class Pit extends HoleShape{
+
+	public Pit(int x, int y, int width)
 	{
-		this.numberOfStones = numOfStones;
+		Ellipse2D.Double pit = new Ellipse2D.Double(x, y, width, width*1.5);
 		
+		add(pit);
 	}
 	
-	public void changeNumOfStones(int numOfStones) 
+	public Pit getPitShape()
 	{
-		this.numberOfStones = numOfStones;
+		return this;
 	}
 	
-	public void draw(Graphics2D g2)
-	{
-		Rectangle2D.Double pit = new Rectangle2D.Double(0,0,300,20);
-		g2.draw(pit);
-	}
 
 }
