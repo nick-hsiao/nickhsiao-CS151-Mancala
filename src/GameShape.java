@@ -2,6 +2,7 @@
 import java.awt.*;
 import java.awt.geom.*;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -11,6 +12,7 @@ import javax.swing.JPanel;
 public class GameShape{
 	private Path2D.Double path;
 	private JPanel panel;
+	private JLabel label;
 	
 	public GameShape()
 	{
@@ -35,6 +37,11 @@ public class GameShape{
 	public void addPanel(JPanel panel)
 	{
 		this.panel = panel;
+	}
+	
+	public void addLabel(JLabel label)
+	{
+		this.label = label;
 	}
 
 }

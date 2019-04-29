@@ -9,6 +9,7 @@ import java.awt.geom.Ellipse2D.Double;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -37,8 +38,12 @@ public class MancalaBoardTest{
 		
 		
 		//ASide
-		Pit pitA1 = new Pit(5, 20,100);
-		final ShapePanel jPitA1 = new ShapePanel(pitA1);
+		Pit pitA1 = new Pit(5, 20,100);							//Create Pit
+		final ShapePanel jPitA1 = new ShapePanel(pitA1);		//Make a JPanel of the Pit
+		jPitA1.setLayout(new BorderLayout());					//Set the Pits layout to BorderLayout
+		StoneCluster stonesA1 = new StoneCluster(-10,0,10,4);	//Create StoneCluster
+		final JLabel jStonesA1 = new JLabel("HILOWEJROJ");	//Make a JPanel of the StoneCluster
+		jPitA1.add(BorderLayout.CENTER, jStonesA1);
 		
 		Pit pitA2 = new Pit(5,20,100);
 		final ShapePanel jPitA2 = new ShapePanel(pitA2);
