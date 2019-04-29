@@ -1,7 +1,4 @@
-import java.awt.*;
 import java.awt.geom.Ellipse2D;
-
-import javax.swing.*;
 public abstract class Pit extends PitShape{
 
     public Pit(int x, int y, int width)
@@ -10,7 +7,7 @@ public abstract class Pit extends PitShape{
         add(pit);
         
     }
-    
+    //number of stones at first
     public int pieces;
     public int pitNum;
    
@@ -28,5 +25,6 @@ public abstract class Pit extends PitShape{
     public void setpitNum(int n){
         pitNum = n;
     }
+    
 
 }

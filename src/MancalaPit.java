@@ -1,7 +1,4 @@
-import java.awt.*;
-import java.awt.geom.RoundRectangle2D;
 
-import javax.swing.*;
 
 public class MancalaPit extends Pit{
     private Player player;

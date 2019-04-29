@@ -7,6 +7,7 @@ import javax.swing.JPanel;
  * The Panel that holds a HoleShape(Pit or Mancala) which can be put onto a Jframe
  *
  */
+@SuppressWarnings("serial")
 public class ShapePanel extends JPanel{
 	
 	private PitShape cs;

@@ -1,9 +1,4 @@
-import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.geom.Ellipse2D;
 
-import javax.swing.*;
 
 public class RegularPit extends Pit{
     
