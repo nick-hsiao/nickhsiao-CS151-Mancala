@@ -13,5 +13,10 @@ public class Mancala extends GameShape{
 		RoundRectangle2D.Double mancala = new RoundRectangle2D.Double(x, y, width, width*4, 600, 50);
 		add(mancala);
 	}
+	
+	public Mancala getMancala()
+	{
+		return this;
+	}
 
 }

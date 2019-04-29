@@ -10,19 +10,21 @@ import javax.swing.JPanel;
  */
 public class ShapePanel extends JPanel{
 	
-	private GameShape hs;
+	private GameShape gs;
 	
-	public ShapePanel(GameShape hs)
+	public ShapePanel(GameShape gs)
 	{
-		this.hs = hs;
-		hs.addPanel(this);
+		this.gs = gs;
+		//adds the GameShape to the JPanel, so it doesn't have to be done later
+		gs.addPanel(this);
 	}
 	
 	public void paintComponent(Graphics g)
 	{
+		//Paints the component based on how each GameShape defines itself to look
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D)g;
-		hs.draw(g2);
+		gs.draw(g2);
 	}
 
 }
