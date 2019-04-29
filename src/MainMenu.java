@@ -5,6 +5,7 @@ import javax.swing.*;
 
 public class MainMenu{
     GameModel model;
+    //boolean flag=false;
 
     public MainMenu(){
         this.model = new GameModel();

@@ -24,7 +24,16 @@ public class Board {
 
         for (int i = 0; i < 6; i++) {
         	//this is where the problem come up, numStone keep it drawing the same thing (3 or 4)
-            Pit pit = new RegularPit(0, 0, 130, numStones, 12 - i); // numStones will usually change
+        	//System.out.println("Board pit size: " + model.getPits().size());
+        	Pit pit;
+        	System.out.println("Model is : " + model.isFlag());
+        	if(model.isFlag()==false) {
+        		pit = new RegularPit(0, 0, 130, numStones, 12 - i); // numStones will usually change
+        	}else {
+        		System.out.println("Board pit size: " + model.getPits().size());
+        		pit = new RegularPit(0, 0, 130, model.getPits().get(i).getPieces(), 12 - i); // numStones will usually change
+        	}
+            
             ShapePanel panel = new ShapePanel(pit);
             panel.setLayout(new BorderLayout());
             int pitNum = pit.getpitNum();
@@ -63,7 +72,13 @@ public class Board {
         }
 
         for (int i = 11; i >= 6; i--) {
-            Pit pit = new RegularPit(0, 0, 130, numStones, 12- i);
+        	Pit pit;
+        	if(model.isFlag()==false) {
+        		pit = new RegularPit(0, 0, 130, numStones, 12 - i); // numStones will usually change
+        	}else {
+        		
+        		pit = new RegularPit(0, 0, 130, model.getPits().get(i).getPieces(), 12 - i); // numStones will usually change
+        	}
             ShapePanel panel = new ShapePanel(pit);
             panel.setLayout(new BorderLayout());
             int pitNum = pit.getpitNum();
@@ -146,6 +161,13 @@ public class Board {
         } else {
             board.getContentPane().setBackground(Color.GRAY);
 
+        }
+        //flag = true;
+        model.setFlag(true);
+        if(model.isFlag()== false) {
+        	System.out.println("Model is false");
+        }else {
+        	System.out.println("Model is true");
         }
         board.setPreferredSize(new Dimension(1400, 400));
         board.setTitle("Mancala");
