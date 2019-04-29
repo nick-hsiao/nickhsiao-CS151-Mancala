@@ -9,6 +9,9 @@ import java.awt.geom.Ellipse2D.Double;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class MancalaBoardTest{
 	
@@ -19,35 +22,74 @@ public class MancalaBoardTest{
 	 */
 	public static void main(String[] args)
 	{
+		final GameModel model = new GameModel();
+		
+		
 		//THINGS ARENT REALLY IN THE RIGHT PLACE RIGHT NOW
+		//Mancalas
+		Mancala mancalaA = new Mancala(0,20,100);
+		final ShapePanel jMancalaA = new ShapePanel(mancalaA);
+		jMancalaA.setPreferredSize(new Dimension(120,100));
+		
+		Mancala mancalaB = new Mancala(10,20,100);
+		final ShapePanel jMancalaB = new ShapePanel(mancalaB);
+		jMancalaB.setPreferredSize(new Dimension(120,100));
+		
 		
 		//ASide
-		Pit pitA1 = new Pit(0,0,30);
+		Pit pitA1 = new Pit(5, 20,100);
 		final ShapePanel jPitA1 = new ShapePanel(pitA1);
-		Pit pitA2 = new Pit(0,0,30);
+		
+		Pit pitA2 = new Pit(5,20,100);
 		final ShapePanel jPitA2 = new ShapePanel(pitA2);
-		Pit pitA3 = new Pit(0,0,30);
+		
+		Pit pitA3 = new Pit(5,20,100);
 		final ShapePanel jPitA3 = new ShapePanel(pitA3);
-		Pit pitA4 = new Pit(0,0,30);
+		
+		Pit pitA4 = new Pit(5,20,100);
 		final ShapePanel jPitA4 = new ShapePanel(pitA4);
-		Pit pitA5 = new Pit(0,0,30);
+		
+		Pit pitA5 = new Pit(5,20,100);
 		final ShapePanel jPitA5 = new ShapePanel(pitA5);
-		Pit pitA6 = new Pit(0,0,30);
+		
+		Pit pitA6 = new Pit(5,20,100);
 		final ShapePanel jPitA6 = new ShapePanel(pitA6);
+		
 		//BSide
-		Pit pitB1 = new Pit(0,0,30);
+		Pit pitB1 = new Pit(0,0,100);
 		final ShapePanel jPitB1 = new ShapePanel(pitB1);
-		Pit pitB2 = new Pit(0,0,30);
+		
+		Pit pitB2 = new Pit(0,0,100);
 		final ShapePanel jPitB2 = new ShapePanel(pitB2);
-		Pit pitB3 = new Pit(0,0,30);
+		
+		Pit pitB3 = new Pit(0,0,100);
 		final ShapePanel jPitB3 = new ShapePanel(pitB3);
-		Pit pitB4 = new Pit(0,0,30);
+		
+		Pit pitB4 = new Pit(0,0,100);
 		final ShapePanel jPitB4 = new ShapePanel(pitB4);
-		Pit pitB5 = new Pit(0,0,30);
+		
+		Pit pitB5 = new Pit(0,0,100);
 		final ShapePanel jPitB5 = new ShapePanel(pitB5);
-		Pit pitB6 = new Pit(0,0,30);
+		
+		Pit pitB6 = new Pit(0,0,100);
 		final ShapePanel jPitB6 = new ShapePanel(pitB6);
 
+		
+		ChangeListener changeListener = new
+				ChangeListener()
+				{
+					public void stateChanged(ChangeEvent event)
+					{
+						//update/redraw the number of stones in a pit (Stone Clusters?)
+						//clear();
+						//redraw stone clusters based on the variable in each StoneCluster
+						
+					}
+			
+				};
+		
+		
+		
 		
 		jPitA1.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e)
@@ -137,23 +179,29 @@ public class MancalaBoardTest{
 		});
 		
 		
-		
 		JFrame frame = new JFrame();
-		frame.setPreferredSize(new Dimension(250, 150));
-		frame.setLayout(new GridLayout(2,0));
-		frame.add(jPitA1);
-		frame.add(jPitA2);
-		frame.add(jPitA3);
-		frame.add(jPitA4);
-		frame.add(jPitA5);
-		frame.add(jPitA6);
-		frame.add(jPitB1);
-		frame.add(jPitB2);
-		frame.add(jPitB3);
-		frame.add(jPitB4);
-		frame.add(jPitB5);
-		frame.add(jPitB6);
+		frame.setLayout(new BorderLayout());
+		frame.setPreferredSize(new Dimension(950, 480));
 		
+		JPanel center = new JPanel();
+		center.setLayout(new GridLayout(2,0));
+		center.add(jPitA1);
+		center.add(jPitA2);
+		center.add(jPitA3);
+		center.add(jPitA4);
+		center.add(jPitA5);
+		center.add(jPitA6);
+		center.add(jPitB1);
+		center.add(jPitB2);
+		center.add(jPitB3);
+		center.add(jPitB4);
+		center.add(jPitB5);
+		center.add(jPitB6);
+		
+		
+		frame.add(BorderLayout.CENTER, center);
+		frame.add(BorderLayout.WEST, jMancalaB);
+		frame.add(BorderLayout.EAST, jMancalaA);
 		
 		
 		

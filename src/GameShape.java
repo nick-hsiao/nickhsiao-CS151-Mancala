@@ -2,14 +2,17 @@
 import java.awt.*;
 import java.awt.geom.*;
 
+import javax.swing.JPanel;
+
 /**
  * Good class to add shapes into the mancala or pits..
  *
  */
-public class HoleShape{
+public class GameShape{
 	private Path2D.Double path;
+	private JPanel panel;
 	
-	public HoleShape()
+	public GameShape()
 	{
 		path = new Path2D.Double();
 	}
@@ -27,6 +30,11 @@ public class HoleShape{
 	public void draw(Graphics2D g2)
 	{
 		g2.draw(path);
+	}
+	
+	public void addPanel(JPanel panel)
+	{
+		this.panel = panel;
 	}
 
 }

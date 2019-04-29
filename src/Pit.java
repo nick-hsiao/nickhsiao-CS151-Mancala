@@ -1,12 +1,15 @@
 
 import java.awt.geom.Ellipse2D;
 
+import javax.swing.JPanel;
+
 /**
  * Defines the shape of the Pit
  * Can include more in here, like the number of stones in the pit..
  *
  */
-public class Pit extends HoleShape{
+public class Pit extends GameShape{
+
 
 	public Pit(int x, int y, int width)
 	{
@@ -19,6 +22,8 @@ public class Pit extends HoleShape{
 	{
 		return this;
 	}
+	
+	
 	
 
 }
