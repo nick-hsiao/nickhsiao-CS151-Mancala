@@ -14,7 +14,11 @@ public class GameModel
 	 */
 	public GameModel()
 	{
-		stoneClusters = new ArrayList<StoneCluster>();
+		stoneClusters = new ArrayList<StoneCluster>(14);
+		for(int i = 0; i < 14; i++)
+		{
+			stoneClusters.add(new StoneCluster(0,0)); //add dummy clusters to start
+		}
 		holes = new ArrayList<ShapePanel>();
 		listeners = new ArrayList<ChangeListener>();
 	}
@@ -28,9 +32,9 @@ public class GameModel
 		listeners.add(cListener);
 	}
 	
-	public void addStoneCluster(StoneCluster sc)
+	public void addStoneCluster(StoneCluster sc, int index)
 	{
-		this.stoneClusters.add(sc);
+		this.stoneClusters.set(index, sc);
 	}
 
 	public void pickUpStones(StoneCluster sc)

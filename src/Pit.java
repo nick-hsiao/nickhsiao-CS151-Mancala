@@ -10,8 +10,6 @@ import javax.swing.JPanel;
  */
 public class Pit extends GameShape{
 
-	private String pitID;
-	private int numberOfStones;
 	
 
 	public Pit()

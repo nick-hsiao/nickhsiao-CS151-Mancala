@@ -8,9 +8,9 @@ import java.awt.geom.RoundRectangle2D;
  */
 public class Mancala extends GameShape{
 	
-	public Mancala(int x, int y, int width)
+	public Mancala(int x, int y)
 	{
-		RoundRectangle2D.Double mancala = new RoundRectangle2D.Double(x, y, width, width*4, 600, 50);
+		RoundRectangle2D.Double mancala = new RoundRectangle2D.Double(x, y, 100, 100*4, 600, 50);
 		add(mancala);
 	}
 	
