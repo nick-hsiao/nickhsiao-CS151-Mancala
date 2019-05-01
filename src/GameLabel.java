@@ -17,8 +17,9 @@ public class GameLabel extends JLabel{
 	public GameLabel(GameIcon icon, GameShape gs)
 	{
 		this.gs = gs;
-		this.icon = icon;
+		gs.addLabel(this);
 		
+		this.icon = icon;
 		icon.addLabel(this);
 	}
 	

@@ -43,7 +43,7 @@ public class StoneCluster extends GameShape{
 	{
 		this.numberOfStones++;
 		add(new Ellipse2D.Double(30 +(this.numberOfStones%5)*10, 40 +(this.numberOfStones%6)*21, 10, 10));
-		
+	//	super.getLabel().repaint();
 	}
 	
 	public void addNumberOfStones(int number)

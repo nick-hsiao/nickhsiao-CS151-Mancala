@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 
+import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 public class GameModel 
 {
-	private ArrayList<ShapePanel> stoneClusters;
+	private ArrayList<StoneCluster> stoneClusters;
 	private ArrayList<ShapePanel> holes;
 	private ArrayList<ChangeListener> listeners;
 	
@@ -13,7 +14,7 @@ public class GameModel
 	 */
 	public GameModel()
 	{
-		stoneClusters = new ArrayList<ShapePanel>();
+		stoneClusters = new ArrayList<StoneCluster>();
 		holes = new ArrayList<ShapePanel>();
 		listeners = new ArrayList<ChangeListener>();
 	}
@@ -26,8 +27,24 @@ public class GameModel
 	{
 		listeners.add(cListener);
 	}
-
 	
+	public void addStoneCluster(StoneCluster sc)
+	{
+		this.stoneClusters.add(sc);
+	}
+
+	public void pickUpStones(StoneCluster sc)
+	{
+		//DO LOGIC OF MANCALA HERE?
+		sc.zeroStones();
+		
+		
+		for(ChangeListener l : listeners)
+		{
+			l.stateChanged(new ChangeEvent(this));
+		}
+		
+	}
 	
 	
 	
@@ -35,13 +52,32 @@ public class GameModel
 	
 	
 //--------------------GETTERS AND SETTERS-------------------------------	
+	
+	
+	
+
+
+	/**
+	 * @return the stoneClusters
+	 */
+	public ArrayList<StoneCluster> getStoneClusters() {
+		return stoneClusters;
+	}
+
+	/**
+	 * @param stoneClusters the stoneClusters to set
+	 */
+	public void setStoneClusters(ArrayList<StoneCluster> stoneClusters) {
+		this.stoneClusters = stoneClusters;
+	}
+	
 	/**
 	 * @return the holes
 	 */
 	public ArrayList<ShapePanel> getHoles() {
 		return holes;
 	}
-
+	
 	/**
 	 * @param holes - the holes to set
 	 */
