@@ -14,12 +14,12 @@ public class Pit extends GameShape{
 	private int numberOfStones;
 	
 
-	public Pit(int x, int y, int width)
+	public Pit()
 	{
 //		this.pitID = pitID;
 //		this.numberOfStones = numberOfStones;
 		
-		Ellipse2D.Double pit = new Ellipse2D.Double(x, y, width, width*1.5);
+		Ellipse2D.Double pit = new Ellipse2D.Double(5, 20, 100, 100*1.5);
 		
 		add(pit);
 	}

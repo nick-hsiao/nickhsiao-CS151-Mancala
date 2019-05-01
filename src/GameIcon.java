@@ -3,15 +3,17 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import javax.swing.Icon;
+import javax.swing.JLabel;
 
 /**
- * To Show the stones over the top of the pit
+ * Icon mainly for the StoneCluster class, to put on a JLabel
  */
 public class GameIcon implements Icon{
 	private GameShape gs;
 	private int width;
+	private JLabel label;
 	
-	public GameIcon(GameShape gs, int width)
+	public GameIcon(GameShape gs)
 	{
 		this.gs = gs;
 		this.width = width;
@@ -19,12 +21,12 @@ public class GameIcon implements Icon{
 
 	@Override
 	public int getIconHeight() {
-		return width;
+		return 10;
 	}
 
 	@Override
 	public int getIconWidth() {
-		return width;
+		return 10;
 	}
 
 	@Override
@@ -32,4 +34,10 @@ public class GameIcon implements Icon{
 		Graphics2D g2 = (Graphics2D)g;
 		gs.draw(g2);
 	}
+	
+	public void addLabel(JLabel label)
+	{
+		this.label = label;
+	}
+	
 }

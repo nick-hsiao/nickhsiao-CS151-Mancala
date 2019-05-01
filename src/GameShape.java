@@ -39,9 +39,15 @@ public class GameShape{
 		this.panel = panel;
 	}
 	
-	public void addLabel(JLabel label)
+	/**
+	public void addLabel(JLabel label);
 	{
-		this.label = label;
+		this.addLabel(this);;
+	}
+	**/
+	public void reset()
+	{
+		path.reset();
 	}
 
 }
