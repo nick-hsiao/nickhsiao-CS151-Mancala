@@ -28,7 +28,6 @@ public class MancalaBoardTest{
 		final GameModel model = new GameModel();
 		
 //-------------------SETTING UP THE SHAPES(PITS,MANCALA,CLUSTERS)-------------------------------------------		
-		//THINGS ARENT REALLY IN THE RIGHT PLACE RIGHT NOW
 		//Mancalas
 		Mancala mancalaA = new Mancala(0,20,100);
 		final ShapePanel jMancalaA = new ShapePanel(mancalaA);
@@ -153,7 +152,7 @@ public class MancalaBoardTest{
 		final GameLabel jStonesB6 = new GameLabel(iconStonesB6, stonesB6);
 		jPitB6.add(BorderLayout.CENTER, jStonesB6);	
 		
-	
+		//add the StoneClusters to the model
 		model.addStoneCluster(stonesA1);
 		model.addStoneCluster(stonesA2);
 		model.addStoneCluster(stonesA3);
@@ -202,84 +201,112 @@ public class MancalaBoardTest{
 			public void mouseClicked(MouseEvent e)
 			{
 				System.out.println("pitA1");
-
-				
 				System.out.println(stonesA1.getNumberOfStones());
 				model.pickUpStones(stonesA1);
 				System.out.println(stonesA1.getNumberOfStones());
-				jStonesA1.repaint();
-				//example of adding a new shape(stone) to the pit
-				//can be implemented differently
-
-				
 
 			}
 		});
-		jPitA2.addMouseListener(new MouseAdapter() {
+		jStonesA2.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e)
 			{
 				System.out.println("pitA2");
+				System.out.println(stonesA2.getNumberOfStones());
+				model.pickUpStones(stonesA2);
+				System.out.println(stonesA2.getNumberOfStones());
+				
 			}
 		});
-		jPitA3.addMouseListener(new MouseAdapter() {
+		jStonesA3.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e)
 			{
 				System.out.println("pitA3");
+				System.out.println(stonesA3.getNumberOfStones());
+				model.pickUpStones(stonesA3);
+				System.out.println(stonesA3.getNumberOfStones());
 			}
 		});
-		jPitA4.addMouseListener(new MouseAdapter() {
+		jStonesA4.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e)
 			{
 				System.out.println("pitA4");
+				System.out.println(stonesA4.getNumberOfStones());
+				model.pickUpStones(stonesA4);
+				System.out.println(stonesA4.getNumberOfStones());
 			}
 		});
-		jPitA5.addMouseListener(new MouseAdapter() {
+		jStonesA5.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e)
 			{
 				System.out.println("pitA5");
+				System.out.println(stonesA5.getNumberOfStones());
+				model.pickUpStones(stonesA5);
+				System.out.println(stonesA5.getNumberOfStones());
 			}
 		});
-		jPitA6.addMouseListener(new MouseAdapter() {
+		jStonesA6.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e)
 			{
 				System.out.println("pitA6");
+				System.out.println(stonesA6.getNumberOfStones());
+				model.pickUpStones(stonesA6);
+				System.out.println(stonesA6.getNumberOfStones());
 			}
 		});
-		jPitB1.addMouseListener(new MouseAdapter() {
+		jStonesB1.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e)
 			{
 				System.out.println("pitB1");
+				System.out.println(stonesB1.getNumberOfStones());
+				model.pickUpStones(stonesB1);
+				System.out.println(stonesB1.getNumberOfStones());
 
 			}
 		});
-		jPitB2.addMouseListener(new MouseAdapter() {
+		jStonesB2.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e)
 			{
 				System.out.println("pitB2");
+				System.out.println(stonesB2.getNumberOfStones());
+				model.pickUpStones(stonesB2);
+				System.out.println(stonesB2.getNumberOfStones());
 			}
 		});
-		jPitB3.addMouseListener(new MouseAdapter() {
+		jStonesB3.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e)
 			{
 				System.out.println("pitB3");
+				System.out.println(stonesB3.getNumberOfStones());
+				model.pickUpStones(stonesB3);
+				System.out.println(stonesB3.getNumberOfStones());
 			}
 		});
-		jPitB4.addMouseListener(new MouseAdapter() {
+		jStonesB4.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e)
 			{
 				System.out.println("pitB4");
+				System.out.println(stonesB4.getNumberOfStones());
+				model.pickUpStones(stonesB4);
+				System.out.println(stonesB4.getNumberOfStones());
+				
 			}
 		});
-		jPitB5.addMouseListener(new MouseAdapter() {
+		jStonesB5.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e)
 			{
 				System.out.println("pitB5");
+				System.out.println(stonesB5.getNumberOfStones());
+				model.pickUpStones(stonesB5);
+				System.out.println(stonesB5.getNumberOfStones());
 			}
 		});
-		jPitB6.addMouseListener(new MouseAdapter() {
+		jStonesB6.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e)
 			{
 				System.out.println("pitB6");
+				System.out.println(stonesB6.getNumberOfStones());
+				model.pickUpStones(stonesB6);
+				System.out.println(stonesB6.getNumberOfStones());
 			}
 		});
 //-------------FINISH ADDING MOUSE LISTENERS---------------------------		
@@ -292,8 +319,7 @@ public class MancalaBoardTest{
 		JPanel center = new JPanel();
 		center.setLayout(new GridLayout(2,6));
 
-		
-		
+
 		center.add(jPitB6);
 		center.add(jPitB5);
 		center.add(jPitB4);
