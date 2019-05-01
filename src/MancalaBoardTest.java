@@ -32,10 +32,20 @@ public class MancalaBoardTest{
 		Mancala mancalaA = new Mancala(0,20,100);
 		final ShapePanel jMancalaA = new ShapePanel(mancalaA);
 		jMancalaA.setPreferredSize(new Dimension(120,100));
+		jMancalaA.setLayout(new BorderLayout());
+		StoneCluster stonesManA = new StoneCluster(0);		//Mancala starts empty
+		GameIcon iconStonesManA = new GameIcon(stonesManA);
+		final GameLabel jStonesManA = new GameLabel(iconStonesManA, stonesManA);
+		jMancalaA.add(BorderLayout.CENTER, jStonesManA);
 		
 		Mancala mancalaB = new Mancala(10,20,100);
 		final ShapePanel jMancalaB = new ShapePanel(mancalaB);
 		jMancalaB.setPreferredSize(new Dimension(120,100));
+		jMancalaB.setLayout(new BorderLayout());
+		StoneCluster stonesManB = new StoneCluster(2);		//Mancala starts empty
+		GameIcon iconStonesManB = new GameIcon(stonesManB);
+		final GameLabel jStonesManB = new GameLabel(iconStonesManB, stonesManB);
+		jMancalaB.add(BorderLayout.CENTER, jStonesManB);
 		
 		
 		//ASide
@@ -85,8 +95,7 @@ public class MancalaBoardTest{
 		StoneCluster stonesA6 = new StoneCluster(4);			
 		GameIcon iconStonesA6 = new GameIcon(stonesA6);	
 		final GameLabel jStonesA6 = new GameLabel(iconStonesA6, stonesA6);
-		jPitA6.add(BorderLayout.CENTER, jStonesA6);
-	
+		jPitA6.add(BorderLayout.CENTER, jStonesA6);	
 		
 		//BSide
 		Pit pitB1 = new Pit();									//Create Pit
