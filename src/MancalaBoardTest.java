@@ -27,7 +27,7 @@ public class MancalaBoardTest{
 	 * This should eventually be some kind of method to generate the board so that it isn't in a main method.
 	 * @param args
 	 */
-	public static void main(String[] args)
+	public static void main(String[] args) 
 	{
 		//reference to the model
 		final GameModel model = new GameModel();
@@ -58,9 +58,9 @@ public class MancalaBoardTest{
 				public void mouseClicked(MouseEvent e)
 				{
 					System.out.println("pitB" + (stones.getIndexInArray()%7 + 1) + " @index: " + stones.getIndexInArray());
-					System.out.println(stones.getNumberOfStones());
+					System.out.println("Stones before click: " + stones.getNumberOfStones());
 					model.pickUpStones(stones);
-					System.out.println(stones.getNumberOfStones());
+					System.out.println("Stones after click: " + stones.getNumberOfStones());
 
 				}
 			});
@@ -88,6 +88,7 @@ public class MancalaBoardTest{
 			public void mouseClicked(MouseEvent e)
 			{
 				System.out.println("Mancala B @index " + stonesManB.getIndexInArray());
+				System.out.println("Stones: " + stonesManB.getNumberOfStones());
 	
 			}
 		});
@@ -112,9 +113,9 @@ public class MancalaBoardTest{
 				public void mouseClicked(MouseEvent e)
 				{
 					System.out.println("pitA" + (stones.getIndexInArray() + 1) + " @index: " + stones.getIndexInArray());
-					System.out.println(stones.getNumberOfStones());
+					System.out.println("Stones before click: " + stones.getNumberOfStones());
 					model.pickUpStones(stones);
-					System.out.println(stones.getNumberOfStones());
+					System.out.println("Stones after click: " + stones.getNumberOfStones());
 
 				}
 			});
@@ -140,6 +141,7 @@ public class MancalaBoardTest{
 			public void mouseClicked(MouseEvent e)
 			{
 				System.out.println("Mancala A @index " + stonesManA.getIndexInArray());
+				System.out.println("Stones: " + stonesManA.getNumberOfStones());
 			}
 		});
 		//add to model ArrayList

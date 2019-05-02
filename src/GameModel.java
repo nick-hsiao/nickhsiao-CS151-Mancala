@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -6,8 +7,9 @@ import javax.swing.event.ChangeListener;
 public class GameModel 
 {
 	private ArrayList<StoneCluster> stoneClusters;
-	private ArrayList<ShapePanel> holes;
+	//private ArrayList<ShapePanel> holes;
 	private ArrayList<ChangeListener> listeners;
+	private boolean playerATurn;
 	
 	/**
 	 * Constructs a GameModel
@@ -19,7 +21,7 @@ public class GameModel
 		{
 			stoneClusters.add(new StoneCluster(0,0)); //add dummy clusters to start
 		}
-		holes = new ArrayList<ShapePanel>();
+		//holes = new ArrayList<ShapePanel>();
 		listeners = new ArrayList<ChangeListener>();
 	}
 	
@@ -43,13 +45,23 @@ public class GameModel
 		int stonesPickedUp = sc.getNumberOfStones();
 		sc.zeroStones();
 		
-		//LOOOPS THROUGH 
+		//Starts the loop one pit after the one clicked and moves however many stones were picked up
+		/*adds one stone to each pit visited.
 		for(int i = sc.getIndexInArray() + 1; i <= stonesPickedUp + sc.getIndexInArray(); i++)
 		{
 			stoneClusters.get(i%stoneClusters.size()).addOneStone();
 			
 		}
+		*/
 		
+		int currentIndex = sc.getIndexInArray() + 1; //starting point
+		while(currentIndex < sc.getIndexInArray()+1 + stonesPickedUp)
+		{
+			
+			stoneClusters.get(currentIndex%stoneClusters.size()).addOneStone();
+			
+			currentIndex++; //increment the index
+		}
 		
 		
 		for(ChangeListener l : listeners)
@@ -86,17 +98,16 @@ public class GameModel
 	
 	/**
 	 * @return the holes
-	 */
 	public ArrayList<ShapePanel> getHoles() {
 		return holes;
 	}
-	
 	/**
 	 * @param holes - the holes to set
-	 */
+	 *
 	public void setHoles(ArrayList<ShapePanel> holes) {
 		this.holes = holes;
 	}
+
 
 	/**
 	 * @return the listeners
