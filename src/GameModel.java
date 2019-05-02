@@ -40,7 +40,16 @@ public class GameModel
 	public void pickUpStones(StoneCluster sc)
 	{
 		//DO LOGIC OF MANCALA HERE?
+		int stonesPickedUp = sc.getNumberOfStones();
 		sc.zeroStones();
+		
+		//LOOOPS THROUGH 
+		for(int i = sc.getIndexInArray() + 1; i <= stonesPickedUp + sc.getIndexInArray(); i++)
+		{
+			stoneClusters.get(i%stoneClusters.size()).addOneStone();
+			
+		}
+		
 		
 		
 		for(ChangeListener l : listeners)

@@ -1,6 +1,8 @@
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
@@ -13,8 +15,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+
 
 public class MancalaBoardTest{
 	
@@ -64,6 +68,7 @@ public class MancalaBoardTest{
 			model.addStoneCluster(stones, stones.getIndexInArray());
 			//add JPanel Pit to the grid
 			center.add(jPit);
+			
 		}
 //---------------------------------------------------------------------------------------------
 //-----------Setting up Mancala B and its StoneClusters--------------------------------------
@@ -177,6 +182,7 @@ public class MancalaBoardTest{
 		JButton exit = new JButton("Exit");
 		JButton undo = new JButton("Undo");
 		buttonPanel.add(exit);
+		buttonPanel.add(undo);
 		frame.add(BorderLayout.NORTH, buttonPanel);
 		
 		
