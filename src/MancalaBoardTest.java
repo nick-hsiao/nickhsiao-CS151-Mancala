@@ -48,7 +48,7 @@ public class MancalaBoardTest{
 			Pit pit = new Pit();
 			final ShapePanel jPit = new ShapePanel(pit);
 			jPit.setLayout(new BorderLayout());
-			StoneCluster stones = new StoneCluster(4, i); //starting number of stones and index in array
+			StoneCluster stones = new StoneCluster(4, i, false); //starting number of stones and index in array
 			GameIcon iconStones = new GameIcon(stones);
 			final GameLabel jStones = new GameLabel(iconStones, stones);
 			jPit.add(BorderLayout.CENTER, jStones);
@@ -78,7 +78,7 @@ public class MancalaBoardTest{
 		final ShapePanel jMancalaB = new ShapePanel(mancalaB);
 		jMancalaB.setPreferredSize(new Dimension(120,100));
 		jMancalaB.setLayout(new BorderLayout());
-		StoneCluster stonesManB = new StoneCluster(0, 13);		//Mancala starts empty
+		StoneCluster stonesManB = new StoneCluster(0, 13, false);		//Mancala starts empty
 		GameIcon iconStonesManB = new GameIcon(stonesManB);
 		final GameLabel jStonesManB = new GameLabel(iconStonesManB, stonesManB);
 		jMancalaB.add(BorderLayout.CENTER, jStonesManB);
@@ -103,7 +103,7 @@ public class MancalaBoardTest{
 			Pit pit = new Pit();
 			final ShapePanel jPit = new ShapePanel(pit);
 			jPit.setLayout(new BorderLayout());
-			StoneCluster stones = new StoneCluster(4, i); //starting number of stones and index in array
+			StoneCluster stones = new StoneCluster(4, i, true); //starting number of stones and index in array
 			GameIcon iconStones = new GameIcon(stones);
 			final GameLabel jStones = new GameLabel(iconStones, stones);
 			jPit.add(BorderLayout.CENTER, jStones);
@@ -131,7 +131,7 @@ public class MancalaBoardTest{
 		final ShapePanel jMancalaA = new ShapePanel(mancalaA);
 		jMancalaA.setPreferredSize(new Dimension(120,100));
 		jMancalaA.setLayout(new BorderLayout());
-		StoneCluster stonesManA = new StoneCluster(0, 6);		//Mancala starts empty
+		StoneCluster stonesManA = new StoneCluster(0, 6, true);		//Mancala starts empty
 		GameIcon iconStonesManA = new GameIcon(stonesManA);
 		final GameLabel jStonesManA = new GameLabel(iconStonesManA, stonesManA);
 		jMancalaA.add(BorderLayout.CENTER, jStonesManA);

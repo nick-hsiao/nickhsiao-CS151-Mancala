@@ -18,12 +18,26 @@ public class GameModel {
 		playerATurn = true;
 		stoneClusters = new ArrayList<StoneCluster>(14);
 		for (int i = 0; i < 14; i++) {
-			stoneClusters.add(new StoneCluster(0, 0)); // add dummy clusters to start
+			stoneClusters.add(new StoneCluster(0, 0, true)); // add dummy clusters to start
 		}
 		// holes = new ArrayList<ShapePanel>();
 		listeners = new ArrayList<ChangeListener>();
 	}
+	
+	// if one side has 0 stone, the game end.
+	public void isOver() {
+		//int a = stoneClusters.
+		//if(stoneClusters.get(index))
+	}
+	
+	public void takeAll() {
+		
+	}
+	
 
+	// true =A
+	//false =B
+	//if currently playerATurn is A, it change to B and otherwise
 	public void switchTurn() {
 		if (playerATurn == true) {
 			playerATurn = false;
@@ -76,6 +90,10 @@ public class GameModel {
 
 				currentIndex++; // increment the index
 			}
+			
+			
+			
+			
 
 			for (ChangeListener l : listeners) {
 				l.stateChanged(new ChangeEvent(this));

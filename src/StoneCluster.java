@@ -9,6 +9,7 @@ import java.awt.geom.Ellipse2D;
 public class StoneCluster extends GameShape{
 	int numberOfStones;
 	int indexInArray;
+	boolean isA;
 	
 	
 	/**
@@ -16,9 +17,10 @@ public class StoneCluster extends GameShape{
 	 * @param numberOfStones
 	 * @param indexInArray
 	 */
-	public StoneCluster(int numberOfStones, int indexInArray)
+	public StoneCluster(int numberOfStones, int indexInArray, boolean isA)
 	{
 		this.indexInArray = indexInArray;
+		this.isA = isA;
 		//Creates and adds a specified number of new circles to the GameShape - StoneCluster
 		for(int i = 0; i < numberOfStones; i++)
 		{
