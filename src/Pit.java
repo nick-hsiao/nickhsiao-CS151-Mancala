@@ -1,30 +1,33 @@
+
 import java.awt.geom.Ellipse2D;
-public abstract class Pit extends PitShape{
 
-    public Pit(int x, int y, int width)
+import javax.swing.JPanel;
+
+/**
+ * Defines the shape of the Pit
+ * Can include more in here, like the number of stones in the pit..
+ *
+ */
+public class Pit extends GameShape{
+
+	
+
+	public Pit()
 	{
-        Ellipse2D.Double pit = new Ellipse2D.Double(x, y, width, width*1.3);
-        add(pit);
-        
-    }
-    //number of stones at first
-    public int pieces;
-    public int pitNum;
-   
-    public int getPieces(){
-        return pieces;
-    }
-    public void setPieces(int n){
-        pieces = n;
-    }
-
-    public int getpitNum(){
-        return pitNum;
-    }
-
-    public void setpitNum(int n){
-        pitNum = n;
-    }
-    
+//		this.pitID = pitID;
+//		this.numberOfStones = numberOfStones;
+		
+		Ellipse2D.Double pit = new Ellipse2D.Double(5, 20, 100, 100*1.5);
+		
+		add(pit);
+	}
+	
+	public Pit getPitShape()
+	{
+		return this;
+	}
+	
+	
+	
 
 }
