@@ -9,17 +9,15 @@ import java.awt.geom.Ellipse2D;
 public class StoneCluster extends GameShape{
 	int numberOfStones;
 	int indexInArray;
-	PlayerLetter letter;
 	
 	/**
 	 * StoneCluster constructor that starts the cluster with specified number of stones
 	 * @param numberOfStones
 	 * @param indexInArray
 	 */
-	public StoneCluster(int numberOfStones, int indexInArray, PlayerLetter letter)
+	public StoneCluster(int numberOfStones, int indexInArray)
 	{
 		this.indexInArray = indexInArray;
-		this.letter = letter;
 		//Creates and adds a specified number of new circles to the GameShape - StoneCluster
 		for(int i = 0; i < numberOfStones; i++)
 		{
@@ -109,20 +107,6 @@ public class StoneCluster extends GameShape{
 		this.indexInArray = indexInArray;
 	}
 
-	/**
-	 * @return the letter
-	 */
-	public PlayerLetter getLetter() {
-		return letter;
-	}
-
-	/**
-	 * @param letter the letter to set
-	 */
-	public void setLetter(PlayerLetter letter) {
-		this.letter = letter;
-	}
-	
 	
 	
 	

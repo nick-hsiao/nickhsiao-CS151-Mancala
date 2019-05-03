@@ -10,23 +10,19 @@ public class GameModel
 	//private ArrayList<ShapePanel> holes;
 	private ArrayList<ChangeListener> listeners;
 	private boolean playerATurn;
-<<<<<<< HEAD
 	private int scoreA;
 	private int scoreB;
-=======
-	private PlayerLetter currentTurn;
->>>>>>> 9ca2479c5422ab032573db02710100f46db2bb77
 	
 	/**
 	 * Constructs a GameModel
 	 */
 	public GameModel()
 	{
-		currentTurn = PlayerLetter.A;
+		playerATurn = true;
 		stoneClusters = new ArrayList<StoneCluster>(14);
 		for(int i = 0; i < 14; i++)
 		{
-			stoneClusters.add(new StoneCluster(0,0,PlayerLetter.NONE)); //add dummy clusters to start
+			stoneClusters.add(new StoneCluster(0,0)); //add dummy clusters to start
 		}
 		//holes = new ArrayList<ShapePanel>();
 		listeners = new ArrayList<ChangeListener>();
@@ -63,15 +59,7 @@ public class GameModel
 		
 		//System.out.println(sc.getIndexInArray() + "--Player " + currentTurn + ".");
 		//condition to switch turn
-		if(sc.getLetter() == currentTurn)
-		{
-			
-			
-			
-			
-			
-			
-		}
+
 		
 		
 		
@@ -97,12 +85,7 @@ public class GameModel
 	
 	//switches whos turn in is
 	public void switchTurn() {
-		if(currentTurn == PlayerLetter.A){
-			currentTurn = PlayerLetter.B;
-		}
-		else {
-			currentTurn = PlayerLetter.A;
-		}
+		playerATurn = !playerATurn;
 	}
 	
 	
