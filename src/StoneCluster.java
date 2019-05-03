@@ -10,6 +10,7 @@ public class StoneCluster extends GameShape{
 	int numberOfStones;
 	int indexInArray;
 	
+	
 	/**
 	 * StoneCluster constructor that starts the cluster with specified number of stones
 	 * @param numberOfStones
