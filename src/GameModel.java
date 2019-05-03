@@ -10,16 +10,18 @@ public class GameModel
 	//private ArrayList<ShapePanel> holes;
 	private ArrayList<ChangeListener> listeners;
 	private boolean playerATurn;
+	private PlayerLetter currentTurn;
 	
 	/**
 	 * Constructs a GameModel
 	 */
 	public GameModel()
 	{
+		currentTurn = PlayerLetter.A;
 		stoneClusters = new ArrayList<StoneCluster>(14);
 		for(int i = 0; i < 14; i++)
 		{
-			stoneClusters.add(new StoneCluster(0,0)); //add dummy clusters to start
+			stoneClusters.add(new StoneCluster(0,0,PlayerLetter.NONE)); //add dummy clusters to start
 		}
 		//holes = new ArrayList<ShapePanel>();
 		listeners = new ArrayList<ChangeListener>();
@@ -54,13 +56,27 @@ public class GameModel
 		}
 		*/
 		
-		int currentIndex = sc.getIndexInArray() + 1; //starting point
-		while(currentIndex < sc.getIndexInArray()+1 + stonesPickedUp)
+		//System.out.println(sc.getIndexInArray() + "--Player " + currentTurn + ".");
+		//condition to switch turn
+		if(sc.getLetter() == currentTurn)
 		{
 			
-			stoneClusters.get(currentIndex%stoneClusters.size()).addOneStone();
 			
-			currentIndex++; //increment the index
+			
+			
+			
+			
+		}
+		
+		
+		
+		int afterClickedIndex = sc.getIndexInArray() + 1; //starting point
+		while(afterClickedIndex < sc.getIndexInArray()+1 + stonesPickedUp)
+		{
+			
+			stoneClusters.get(afterClickedIndex%stoneClusters.size()).addOneStone();
+			
+			afterClickedIndex++; //increment the index
 		}
 		
 		
@@ -73,6 +89,16 @@ public class GameModel
 	
 	
 	
+	
+	//switches whos turn in is
+	public void switchTurn() {
+		if(currentTurn == PlayerLetter.A){
+			currentTurn = PlayerLetter.B;
+		}
+		else {
+			currentTurn = PlayerLetter.A;
+		}
+	}
 	
 	
 	
