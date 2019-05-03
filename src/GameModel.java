@@ -10,6 +10,8 @@ public class GameModel
 	//private ArrayList<ShapePanel> holes;
 	private ArrayList<ChangeListener> listeners;
 	private boolean playerATurn;
+	private int scoreA;
+	private int scoreB;
 	
 	/**
 	 * Constructs a GameModel
@@ -122,6 +124,24 @@ public class GameModel
 	public void setListeners(ArrayList<ChangeListener> listeners) {
 		this.listeners = listeners;
 	}
+
+	public void setScoreA(){
+		this.scoreA = stoneClusters.get(6).getNumberOfStones();
+	}
+
+	public int getScoreA(){
+		return this.scoreA;
+	}
+
+	public void setScoreB(){
+		this.scoreB = stoneClusters.get(13).getNumberOfStones();
+	}
+
+	public int getScoreB(){
+		return this.scoreB;
+	}
+
+
 
 	
 	
