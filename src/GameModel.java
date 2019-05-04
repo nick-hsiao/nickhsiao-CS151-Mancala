@@ -14,12 +14,14 @@ public class GameModel {
 	private int[] backUp;
 	private boolean isFirstTurn;
 	private int aOrB;
+	private int startingStones;
 	
 	/**
 	 * Constructs a GameModel
 	 */
-	public GameModel() {
+	public GameModel(int s) {
 		// true is A turn and false is B turn
+		startingStones = s;
 		aOrB=0;
 		isFirstTurn = true;
 		backUp = new int[14];
@@ -237,15 +239,16 @@ public class GameModel {
 				System.out.println("Game Over");
 				if (stoneClusters.get(6).getNumberOfStones() > stoneClusters.get(13).getNumberOfStones()) {
 					System.out.println("Player A won! ");
-					JOptionPane.showMessageDialog(null, "Player A won", "InfoBox: " + "Winner Announcment", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Player A won", "Game Alert: " + "Winner Announcment", JOptionPane.INFORMATION_MESSAGE);
 				} else {
 					System.out.println("Player B won! ");
-					JOptionPane.showMessageDialog(null, "Player B won", "InfoBox: " + "Winner Announcment", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Player B won", "Game Alert: " + "Winner Announcment", JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 
 		} else {
 			System.out.println("It's not your turn");
+			JOptionPane.showMessageDialog(null, "That's not your pit!","Game Alert", JOptionPane.INFORMATION_MESSAGE);
 		}
 
 
@@ -253,6 +256,13 @@ public class GameModel {
 
 	// --------------------GETTERS AND SETTERS-------------------------------
 
+	public int getStartingStones(){
+		return this.startingStones;
+	}
+
+	public boolean getPlayerTurn(){
+		return this.playerATurn;
+	}
 	/**
 	 * @return the stoneClusters
 	 */
@@ -289,5 +299,6 @@ public class GameModel {
 	public void setListeners(ArrayList<ChangeListener> listeners) {
 		this.listeners = listeners;
 	}
+	
 
 }
