@@ -127,7 +127,8 @@ public class Board{
 		// -----------Setting up Mancala A and its StoneClusters--------------------------------------
 		// Mancala A goes in after ASide
 		Mancala mancalaA = new Mancala(0, 20);
-        final ShapePanel jMancalaA = new ShapePanel(mancalaA);
+		final ShapePanel jMancalaA = new ShapePanel(mancalaA);
+		
         if (!theme.isClassic()){
             jMancalaA.setBackground(Color.yellow);
         }
@@ -187,7 +188,10 @@ public class Board{
         if (!theme.isClassic()){
             buttonPanel.setBackground(Color.yellow);
         }
-        undo.addActionListener(undoListener);
+		undo.addActionListener(undoListener);
+		
+		JLabel playerAScore = new JLabel("Player A Score: " + model.getStoneClusters().get(6).getNumberOfStones());
+		JLabel playerBScore = new JLabel("Player B Score: " + model.getStoneClusters().get(13).getNumberOfStones());
 
         ChangeListener cListener = new ChangeListener() {
 			public void stateChanged(ChangeEvent event) {
@@ -196,9 +200,13 @@ public class Board{
 					sc.zeroStones();
 					sc.addNumberOfStones(numOfStones);
 					sc.getLabel().repaint();
-                }
-                String player = model.getPlayerTurn() ? "Player A Turn": "Player B Turn";
-                label.setText(player);
+				}
+				playerAScore.setText("Player A Score: " + model.getStoneClusters().get(6).getNumberOfStones());
+				playerBScore.setText("Player B Score: " + model.getStoneClusters().get(13).getNumberOfStones());
+				playerAScore.repaint();
+				playerBScore.repaint();
+                String player = model.getPlayerTurn() ? "Player A's Turn": "Player B's Turn";
+				label.setText(player);
                 label.repaint();
                 buttonPanel.repaint();
                 
@@ -211,14 +219,18 @@ public class Board{
         
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+				
+				System.exit(-1);
             }
-        });
-		buttonPanel.add(exit);
-        buttonPanel.add(undo);
-        buttonPanel.add(label);
+		});
+		buttonPanel.add(playerAScore);
+		buttonPanel.add(undo);
+		buttonPanel.add(label);
+        buttonPanel.add(exit);
+		buttonPanel.add(playerBScore);
 		frame.add(BorderLayout.NORTH, buttonPanel);
 
+		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setVisible(true);

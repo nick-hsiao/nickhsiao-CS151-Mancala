@@ -239,15 +239,16 @@ public class GameModel {
 				System.out.println("Game Over");
 				if (stoneClusters.get(6).getNumberOfStones() > stoneClusters.get(13).getNumberOfStones()) {
 					System.out.println("Player A won! ");
-					JOptionPane.showMessageDialog(null, "Player A won", "InfoBox: " + "Winner Announcment", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Player A won", "Game Alert: " + "Winner Announcment", JOptionPane.INFORMATION_MESSAGE);
 				} else {
 					System.out.println("Player B won! ");
-					JOptionPane.showMessageDialog(null, "Player B won", "InfoBox: " + "Winner Announcment", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Player B won", "Game Alert: " + "Winner Announcment", JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 
 		} else {
 			System.out.println("It's not your turn");
+			JOptionPane.showMessageDialog(null, "That's not your pit!","Game Alert", JOptionPane.INFORMATION_MESSAGE);
 		}
 
 
