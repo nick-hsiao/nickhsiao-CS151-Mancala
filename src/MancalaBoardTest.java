@@ -165,6 +165,7 @@ public class MancalaBoardTest {
 		ActionListener undoListener = new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				model.undo();
+				System.out.println("Undo is pressed!");
 			}
 		};
 
