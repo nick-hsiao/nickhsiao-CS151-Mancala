@@ -1,4 +1,6 @@
+import java.awt.Color;
+
 public interface BoardStyle{
 
-    public boolean isClassic();
+    public Color getColor();
 }

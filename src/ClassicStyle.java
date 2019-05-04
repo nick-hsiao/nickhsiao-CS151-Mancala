@@ -1,8 +1,10 @@
+import java.awt.Color;
+
 public class ClassicStyle implements BoardStyle{
 
     @Override
-    public boolean isClassic() {
-        return true;
+    public Color getColor() {
+        return Color.LIGHT_GRAY;
     }
 
 }

@@ -14,7 +14,7 @@ public class MainMenu{
         JButton classic3 = new JButton("Classic Theme : 3 Stones");
         JButton classic4 = new JButton("Classic Theme : 4 Stones");
         JButton color3 = new JButton("Color Theme : 3 Stones");
-        JButton color4 = new JButton("Color Theme : 3 Stones");
+        JButton color4 = new JButton("Color Theme : 4 Stones");
 
         classic3.addActionListener(new ActionListener(){
         
