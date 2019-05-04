@@ -13,18 +13,20 @@ public class GameModel {
 	private int undoA;
 	private int undoB;
 	private int[] backUp;
-	private boolean isUndo;
-
+	private boolean isFirstTurn;
+	private int aOrB;
+	
 	/**
 	 * Constructs a GameModel
 	 */
 	public GameModel() {
 		// true is A turn and false is B turn
+		aOrB=0;
+		isFirstTurn = true;
 		backUp = new int[14];
 		for (int i = 0; i < 14; i++) {
 			backUp[i] = ZERO;
 		}
-		isUndo = false;
 		undoA = NUMBER_OF_UNDO;
 		undoB = NUMBER_OF_UNDO;
 		playerATurn = true;
@@ -42,20 +44,35 @@ public class GameModel {
 	}
 
 	public void undo() {
-		if (playerATurn == true) {
-			if (undoA > 0 && isUndo != true) {
-				undoA -= 1;
-				isUndo = true;
-				for(int i=0;i<stoneClusters.size();i++) {
-					stoneClusters.get(i).setNumberOfStones(backUp[i]);
-				}
+		if(isFirstTurn!= true && undoA !=0 && undoB!=0) {
+			if(playerATurn == false || !playerATurn == true) {
+				switchTurn();
 			}
-		} else {
-			if (undoB > 0 && isUndo != true) {
-				undoB -= 1;
-				isUndo = true;
-				for(int i=0;i<stoneClusters.size();i++) {
-					stoneClusters.get(i).setNumberOfStones(backUp[i]);
+			if(aOrB<6 && playerATurn !=true) {
+				switchTurn();
+			}
+			
+			if((aOrB>6 && aOrB<13) && playerATurn ==true) {
+				switchTurn();
+			}
+				
+			if (playerATurn == true) {
+				if (undoA > 0 ) {
+					undoA -= 1;
+					System.out.println("Player A has " + undoA + " undos left");
+					//isUndo = true;
+					for(int i=0;i<stoneClusters.size();i++) {
+						stoneClusters.get(i).setNumberOfStones(backUp[i]);
+					}
+				}
+			} else {
+				if (undoB > 0 ) {
+					undoB -= 1;
+					System.out.println("Player B has " + undoB + " undos left");
+					//isUndo = true;
+					for(int i=0;i<stoneClusters.size();i++) {
+						stoneClusters.get(i).setNumberOfStones(backUp[i]);
+					}
 				}
 			}
 		}
@@ -124,10 +141,10 @@ public class GameModel {
 	public void switchTurn() {
 		if (playerATurn == true) {
 			playerATurn = false;
-			isUndo = false;
+			//isUndo = false;
 		} else {
 			playerATurn = true;
-			isUndo = false;
+			//isUndo = false;
 		}
 	}
 
@@ -153,7 +170,10 @@ public class GameModel {
 
 	public void pickUpStones(StoneCluster sc) {
 		// DO LOGIC OF MANCALA HERE?
+		isFirstTurn = false;
 		createbackUp();
+		aOrB = sc.getIndexInArray(); 
+		
 
 		int stonesPickedUp = sc.getNumberOfStones();
 		if (stonesPickedUp == 0) {
@@ -195,6 +215,16 @@ public class GameModel {
 			if ((controlNum % stoneClusters.size()) != 6 && (controlNum % stoneClusters.size()) != 13) {
 				switchTurn();
 				System.out.println("Turn has been changed");
+			}
+			
+			//if(undoA==0 && aOrB>6 && aOrB<13  )
+			if(aOrB>6 && aOrB<13)
+			{
+				undoA = 3;
+			}
+			if(aOrB < 6)
+			{
+				undoB = 3;
 			}
 
 			/*
