@@ -157,16 +157,7 @@ public class Board{
 
 		// ----------ADD CHANGE LISTENERS (UPDATE VIEW)----------------------------------
 
-		ChangeListener cListener = new ChangeListener() {
-			public void stateChanged(ChangeEvent event) {
-				for (StoneCluster sc : model.getStoneClusters()) {
-					int numOfStones = sc.getNumberOfStones();
-					sc.zeroStones();
-					sc.addNumberOfStones(numOfStones);
-					sc.getLabel().repaint();
-				}
-			}
-		};
+		
 		
 		//action listener (move out of this block)
 		ActionListener undoListener = new ActionListener() {
@@ -176,7 +167,7 @@ public class Board{
 			}
 		};
 
-		model.attach(cListener);
+		
 
 		// -------------FINISH CHANGE LISTENERS--------------------------------------
 
@@ -187,7 +178,9 @@ public class Board{
 		frame.add(BorderLayout.WEST, jMancalaB);
 		frame.add(BorderLayout.EAST, jMancalaA);
 
-		// Buttons on top
+        // Buttons on top
+        String playerLabel = model.getPlayerTurn() ? "Player A Turn": "Player B Turn";
+        JLabel label = new JLabel(playerLabel);
 		JPanel buttonPanel = new JPanel();
 		JButton exit = new JButton("Exit");
         JButton undo = new JButton("Undo");
@@ -195,6 +188,25 @@ public class Board{
             buttonPanel.setBackground(Color.yellow);
         }
         undo.addActionListener(undoListener);
+
+        ChangeListener cListener = new ChangeListener() {
+			public void stateChanged(ChangeEvent event) {
+				for (StoneCluster sc : model.getStoneClusters()) {
+					int numOfStones = sc.getNumberOfStones();
+					sc.zeroStones();
+					sc.addNumberOfStones(numOfStones);
+					sc.getLabel().repaint();
+                }
+                String player = model.getPlayerTurn() ? "Player A Turn": "Player B Turn";
+                label.setText(player);
+                label.repaint();
+                buttonPanel.repaint();
+                
+                
+			}
+        };
+        
+        model.attach(cListener);
         exit.addActionListener(new ActionListener(){
         
             @Override
@@ -203,7 +215,8 @@ public class Board{
             }
         });
 		buttonPanel.add(exit);
-		buttonPanel.add(undo);
+        buttonPanel.add(undo);
+        buttonPanel.add(label);
 		frame.add(BorderLayout.NORTH, buttonPanel);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

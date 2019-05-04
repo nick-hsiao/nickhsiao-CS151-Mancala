@@ -258,6 +258,10 @@ public class GameModel {
 	public int getStartingStones(){
 		return this.startingStones;
 	}
+
+	public boolean getPlayerTurn(){
+		return this.playerATurn;
+	}
 	/**
 	 * @return the stoneClusters
 	 */
@@ -294,5 +298,6 @@ public class GameModel {
 	public void setListeners(ArrayList<ChangeListener> listeners) {
 		this.listeners = listeners;
 	}
+	
 
 }
