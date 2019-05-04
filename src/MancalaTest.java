@@ -9,9 +9,9 @@ public class MancalaTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// reference to the model
+		
 		new MainMenu();
-		//new Board();
+		
 
 	}
 

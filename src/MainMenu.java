@@ -9,6 +9,8 @@ public class MainMenu{
     public MainMenu(){
 
         JFrame frame = new JFrame();
+        frame.setTitle("Mancala Main Menu");
+        
         frame.setLayout(new FlowLayout());
 
         JButton classic3 = new JButton("Classic Theme : 3 Stones");

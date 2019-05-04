@@ -225,13 +225,14 @@ public class Board {
 				System.exit(-1);
 			}
 		});
-		buttonPanel.add(playerAScore);
+		buttonPanel.add(playerBScore);
 		buttonPanel.add(undo);
 		buttonPanel.add(label);
 		buttonPanel.add(exit);
-		buttonPanel.add(playerBScore);
+		buttonPanel.add(playerAScore);
 		frame.add(BorderLayout.NORTH, buttonPanel);
 
+		//setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
