@@ -14,12 +14,14 @@ public class GameModel {
 	private int[] backUp;
 	private boolean isFirstTurn;
 	private int aOrB;
+	private int startingStones;
 	
 	/**
 	 * Constructs a GameModel
 	 */
-	public GameModel() {
+	public GameModel(int s) {
 		// true is A turn and false is B turn
+		startingStones = s;
 		aOrB=0;
 		isFirstTurn = true;
 		backUp = new int[14];
@@ -253,6 +255,9 @@ public class GameModel {
 
 	// --------------------GETTERS AND SETTERS-------------------------------
 
+	public int getStartingStones(){
+		return this.startingStones;
+	}
 	/**
 	 * @return the stoneClusters
 	 */
