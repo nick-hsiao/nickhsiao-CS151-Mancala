@@ -1,6 +1,5 @@
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
-
+import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -60,7 +59,6 @@ public class GameModel {
 				if (undoA > 0 ) {
 					undoA -= 1;
 					System.out.println("Player A has " + undoA + " undos left");
-					//isUndo = true;
 					for(int i=0;i<stoneClusters.size();i++) {
 						stoneClusters.get(i).setNumberOfStones(backUp[i]);
 					}
@@ -227,6 +225,10 @@ public class GameModel {
 				undoB = 3;
 			}
 
+			for (ChangeListener l : listeners) {
+				l.stateChanged(new ChangeEvent(this));
+			}
+			
 			/*
 			 * if one side has 0 stone the other side receive all the stones in their side
 			 * and announcement of winner will be printed
@@ -235,8 +237,10 @@ public class GameModel {
 				System.out.println("Game Over");
 				if (stoneClusters.get(6).getNumberOfStones() > stoneClusters.get(13).getNumberOfStones()) {
 					System.out.println("Player A won! ");
+					JOptionPane.showMessageDialog(null, "Player A won", "InfoBox: " + "Winner Announcment", JOptionPane.INFORMATION_MESSAGE);
 				} else {
 					System.out.println("Player B won! ");
+					JOptionPane.showMessageDialog(null, "Player B won", "InfoBox: " + "Winner Announcment", JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 
@@ -244,9 +248,7 @@ public class GameModel {
 			System.out.println("It's not your turn");
 		}
 
-		for (ChangeListener l : listeners) {
-			l.stateChanged(new ChangeEvent(this));
-		}
+
 	}
 
 	// --------------------GETTERS AND SETTERS-------------------------------
