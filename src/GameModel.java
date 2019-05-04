@@ -6,7 +6,6 @@ import javax.swing.event.ChangeListener;
 
 public class GameModel {
 	private ArrayList<StoneCluster> stoneClusters;
-	// private ArrayList<ShapePanel> holes;
 	private ArrayList<ChangeListener> listeners;
 	private boolean playerATurn;
 
@@ -25,24 +24,54 @@ public class GameModel {
 	}
 
 	// if one side has 0 stone, the game end.
-	public void isOver() {
-		// int a = stoneClusters.
-		// if(stoneClusters.get(index))
+	public boolean isOver() {
+
+		int totalStone = 0;
+		for (int i = 0; i < 6; i++) {
+			totalStone += stoneClusters.get(i).getNumberOfStones();
+		}
+		if (totalStone == 0) {
+			int number = 0;
+			for (int i = 7; i < 13; i++) {
+				number += stoneClusters.get(i).getNumberOfStones();
+				stoneClusters.get(i).zeroStones();
+			}
+			stoneClusters.get(13).addNumberOfStones(number);
+
+			return true; // if A side has 0 stone
+		}
+
+		int totalStone2 = 0;
+		for (int i = 7; i < 13; i++) {
+			totalStone2 += stoneClusters.get(i).getNumberOfStones();
+		}
+		if (totalStone2 == 0) {
+			int number = 0;
+			for (int i = 0; i < 6; i++) {
+				number += stoneClusters.get(i).getNumberOfStones();
+				stoneClusters.get(i).zeroStones();
+			}
+			stoneClusters.get(6).addNumberOfStones(number);
+
+			return true; // if B side has 0 stone
+		}
+
+		return false; // if the game is not over yet
 	}
 
 	public int takeAll(StoneCluster a) {
-		int holdNum=0;
-		int numberInLast=0;
-		if(a.numberOfStones ==1) {
-			StoneCluster opp = stoneClusters.get(12-a.getIndexInArray());
+		int holdNum = 0;
+		int numberInLast = 0;
+		if (a.numberOfStones == 1) {
+			StoneCluster opp = stoneClusters.get(12 - a.getIndexInArray());
 			holdNum = opp.getNumberOfStones();
 			opp.zeroStones();
-			numberInLast = a.getNumberOfStones();
-			a.zeroStones();
-			
-			System.out.println("Opp stones: " + stoneClusters.get(12-a.getIndexInArray()).getNumberOfStones());
+			// numberInLast = a.getNumberOfStones();
+			// a.zeroStones();
+
+			System.out.println("Opp stones: " + stoneClusters.get(12 - a.getIndexInArray()).getNumberOfStones());
 		}
-		return holdNum+numberInLast;
+		return holdNum + numberInLast;
 	}
 
 	// true =A
@@ -73,7 +102,7 @@ public class GameModel {
 	public void pickUpStones(StoneCluster sc) {
 		// DO LOGIC OF MANCALA HERE?
 		int stonesPickedUp = sc.getNumberOfStones();
-		if(stonesPickedUp ==0) {
+		if (stonesPickedUp == 0) {
 			System.out.println("Pick a Pit with STONES");
 			return;
 		}
@@ -81,17 +110,7 @@ public class GameModel {
 		// System.out.println("--Player " + currentTurn + ".");
 		if ((sc.getIndexInArray() < 6 && playerATurn == true)
 				|| ((sc.getIndexInArray() > 6 && sc.getIndexInArray() < 13) && playerATurn == false)) {
-			// Starts the loop one pit after the one clicked and moves however many stones
-			// were picked up
-			/*
-			 * adds one stone to each pit visited. for(int i = sc.getIndexInArray() + 1; i
-			 * <= stonesPickedUp + sc.getIndexInArray(); i++) {
-			 * stoneClusters.get(i%stoneClusters.size()).addOneStone();
-			 * 
-			 * }
-			 */
 			int controlNum = sc.getIndexInArray() + stonesPickedUp;
-			
 
 			sc.zeroStones();
 			int currentIndex = sc.getIndexInArray() + 1; // starting point
@@ -102,33 +121,41 @@ public class GameModel {
 
 				currentIndex++; // increment the index
 			}
-			
-			
-			/*takeALL()
-			 * */
-			currentIndex-=1;
+
+			/*
+			 * takeALL()
+			 */
+			currentIndex -= 1;
 			StoneCluster lastCluster = stoneClusters.get(currentIndex % 14);
-			// System.out.println("\nCurrentInt:" + currentIndex%stoneClusters.size() +
-			// "PlayerATurn" + playerATurn);
-			if(currentIndex%stoneClusters.size()< 6 && playerATurn ==true) {
+
+			if (currentIndex % stoneClusters.size() < 6 && playerATurn == true) {
 				stoneClusters.get(6).addNumberOfStones(takeAll(lastCluster));
-//				System.out.println("mancala A: " + stoneClusters.get(6).getNumberOfStones());
-//				System.out.println("mancala B: " + stoneClusters.get(13).getNumberOfStones());
-//				System.out.println("CurrentInt1: " + currentIndex%stoneClusters.size());
 			}
-			
-			if((currentIndex%stoneClusters.size()<13&& currentIndex%stoneClusters.size()>6)&& playerATurn ==false) {
+
+			if ((currentIndex % stoneClusters.size() < 13 && currentIndex % stoneClusters.size() > 6)
+					&& playerATurn == false) {
 				stoneClusters.get(13).addNumberOfStones(takeAll(lastCluster));
-//				System.out.println("mancala A: " + stoneClusters.get(6).getNumberOfStones());
-//				System.out.println("mancala B: " + stoneClusters.get(13).getNumberOfStones());
-//				System.out.println("CurrentInt2: " + currentIndex%stoneClusters.size());
 			}
-			
+
 			if ((controlNum % stoneClusters.size()) != 6 && (controlNum % stoneClusters.size()) != 13) {
 				switchTurn();
 				System.out.println("Turn has been changed");
 			}
-			
+
+			/*
+			 * if one side has 0 stone the other side receive all the stones in their side
+			 * and announcement of winner will be printed
+			 */
+			if (isOver()) {
+				System.out.println("Game Over");
+				if (stoneClusters.get(6).getNumberOfStones() > stoneClusters.get(13).getNumberOfStones()) {
+					System.out.println("Player A won! ");
+				} else {
+					System.out.println("Player B won! ");
+				}
+
+			}
+
 			for (ChangeListener l : listeners) {
 				l.stateChanged(new ChangeEvent(this));
 			}

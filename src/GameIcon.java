@@ -10,13 +10,11 @@ import javax.swing.JLabel;
  */
 public class GameIcon implements Icon{
 	private GameShape gs;
-	private int width;
 	private JLabel label;
 	
 	public GameIcon(GameShape gs)
 	{
 		this.gs = gs;
-		this.width = width;
 	}
 
 	@Override
