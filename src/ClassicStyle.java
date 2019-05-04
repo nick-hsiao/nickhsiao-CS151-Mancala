@@ -7,4 +7,6 @@ public class ClassicStyle implements BoardStyle{
         return Color.LIGHT_GRAY;
     }
 
+    
+
 }
