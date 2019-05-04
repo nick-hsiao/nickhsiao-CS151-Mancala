@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.Ellipse2D;
@@ -40,8 +42,7 @@ public class MancalaBoardTest {
 		JPanel center = new JPanel();
 		center.setLayout(new GridLayout(2, 6));
 
-		// ----------------Setting up the BSide Pits and its
-		// StoneClusters--------------------------------
+		// ----------------Setting up the BSide Pits and its StoneClusters--------------------------------
 		// BSide goes in indexes starting 7 to 12
 		for (int i = 12; i >= 7; i--) {
 			Pit pit = new Pit();
@@ -69,8 +70,7 @@ public class MancalaBoardTest {
 
 		}
 		// ---------------------------------------------------------------------------------------------
-		// -----------Setting up Mancala B and its
-		// StoneClusters--------------------------------------
+		// -----------Setting up Mancala B and its StoneClusters--------------------------------------
 
 		// Mancala B goes after BSide
 		Mancala mancalaB = new Mancala(10, 20);
@@ -93,8 +93,7 @@ public class MancalaBoardTest {
 		model.addStoneCluster(stonesManB, stonesManB.getIndexInArray());
 
 		// -------------------------------------------------------------------------------------------------
-		// ----------------Setting up the ASide Pits and its
-		// StoneClusters------------------------------
+		// ----------------Setting up the ASide Pits and its StoneClusters------------------------------
 		// ASide goes in first starting from 0 to 5
 		for (int i = 0; i <= 5; i++) {
 			Pit pit = new Pit();
@@ -121,8 +120,7 @@ public class MancalaBoardTest {
 			center.add(jPit);
 		}
 		// ------------------------------------------------------------------------------------------------
-		// -----------Setting up Mancala A and its
-		// StoneClusters--------------------------------------
+		// -----------Setting up Mancala A and its StoneClusters--------------------------------------
 		// Mancala A goes in after ASide
 		Mancala mancalaA = new Mancala(0, 20);
 		final ShapePanel jMancalaA = new ShapePanel(mancalaA);
@@ -145,9 +143,9 @@ public class MancalaBoardTest {
 		// ------------FINISH SETTING UP-----------------------------------------------
 
 		ArrayList<StoneCluster> sc = model.getStoneClusters();
+		
 
-		// ----------ADD CHANGE LISTENERS (UPDATE
-		// VIEW)----------------------------------
+		// ----------ADD CHANGE LISTENERS (UPDATE VIEW)----------------------------------
 
 		ChangeListener cListener = new ChangeListener() {
 			public void stateChanged(ChangeEvent event) {
@@ -157,6 +155,13 @@ public class MancalaBoardTest {
 					sc.addNumberOfStones(numOfStones);
 					sc.getLabel().repaint();
 				}
+			}
+		};
+		
+		//action listener (move out of this block)
+		ActionListener undoListener = new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				model.undo();
 			}
 		};
 
@@ -175,6 +180,7 @@ public class MancalaBoardTest {
 		JPanel buttonPanel = new JPanel();
 		JButton exit = new JButton("Exit");
 		JButton undo = new JButton("Undo");
+		undo.addActionListener(undoListener);
 		buttonPanel.add(exit);
 		buttonPanel.add(undo);
 		frame.add(BorderLayout.NORTH, buttonPanel);
