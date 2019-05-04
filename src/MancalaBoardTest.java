@@ -169,6 +169,11 @@ public class MancalaBoardTest {
 			}
 		};
 
+		ActionListener exitListener = new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				System.exit(-1);
+			}
+		};
 		model.attach(cListener);
 
 		// -------------FINISH CHANGE LISTENERS--------------------------------------
@@ -184,6 +189,7 @@ public class MancalaBoardTest {
 		JPanel buttonPanel = new JPanel();
 		JButton exit = new JButton("Exit");
 		JButton undo = new JButton("Undo");
+		exit.addActionListener(exitListener);
 		undo.addActionListener(undoListener);
 		buttonPanel.add(exit);
 		buttonPanel.add(undo);
