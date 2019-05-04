@@ -143,11 +143,10 @@ public class MancalaBoardTest {
 		// ------------FINISH SETTING UP-----------------------------------------------
 
 		ArrayList<StoneCluster> sc = model.getStoneClusters();
-<<<<<<< HEAD
+
 		
-=======
 		model.setBackUp(sc);
->>>>>>> 8714a0eed7c1c4be9801a99eef3327b8dc960fac
+
 
 		// ----------ADD CHANGE LISTENERS (UPDATE VIEW)----------------------------------
 
