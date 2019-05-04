@@ -8,12 +8,18 @@ public class GameModel {
 	private ArrayList<StoneCluster> stoneClusters;
 	private ArrayList<ChangeListener> listeners;
 	private boolean playerATurn;
-
+	private int undoA;
+	private int undoB;
+	private static final int NUMBER_OF_UNDO = 3;
+	private boolean isUndo;
 	/**
 	 * Constructs a GameModel
 	 */
 	public GameModel() {
 		// true is A turn and false is B turn
+		isUndo=false;
+		undoA=NUMBER_OF_UNDO;
+		undoB=NUMBER_OF_UNDO;
 		playerATurn = true;
 		stoneClusters = new ArrayList<StoneCluster>(14);
 		for (int i = 0; i < 14; i++) {
@@ -21,6 +27,23 @@ public class GameModel {
 		}
 		// holes = new ArrayList<ShapePanel>();
 		listeners = new ArrayList<ChangeListener>();
+	}
+	
+	public void undo() {
+		if(playerATurn==true) {
+			if(undoA>0 && isUndo!= true) {
+				undoA-=1;
+				isUndo =true;
+				
+			}
+			
+		}else {
+			if(undoB>0 && isUndo!= true) {
+				undoB-=1;
+				isUndo=true;
+			}
+			
+		}
 	}
 
 	// if one side has 0 stone, the game end.
@@ -80,8 +103,10 @@ public class GameModel {
 	public void switchTurn() {
 		if (playerATurn == true) {
 			playerATurn = false;
+			isUndo=false;
 		} else {
 			playerATurn = true;
+			isUndo=false;
 		}
 	}
 
