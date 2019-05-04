@@ -146,7 +146,10 @@ public class MancalaBoardTest {
 
 		
 		model.setBackUp(sc);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 726a63dc6f5c932cb553f00bacadfe3e0bcd9300
 
 		// ----------ADD CHANGE LISTENERS (UPDATE VIEW)----------------------------------
 
