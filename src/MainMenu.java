@@ -54,7 +54,7 @@ public class MainMenu{
                 
             }
         });
-
+        
         frame.add(classic3);
         frame.add(classic4);
         frame.add(color3);
