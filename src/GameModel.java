@@ -139,13 +139,7 @@ public class GameModel {
 	// false =B
 	// if currently playerATurn is A, it change to B and otherwise
 	public void switchTurn() {
-		if (playerATurn == true) {
-			playerATurn = false;
-			//isUndo = false;
-		} else {
-			playerATurn = true;
-			//isUndo = false;
-		}
+		playerATurn = !playerATurn;
 	}
 
 	/**

@@ -25,7 +25,7 @@ public class StoneCluster extends GameShape{
 		for(int i = 0; i < numberOfStones; i++)
 		{
 			this.numberOfStones++;
-			add(new Ellipse2D.Double(30 +(this.numberOfStones%5)*10, 40 +(this.numberOfStones%6)*21, 10, 10));
+			add(new Ellipse2D.Double(30 +(this.numberOfStones%5)*10, 20 +(this.numberOfStones%6)*21, 10, 10));
 		}
 	}
 
@@ -36,7 +36,7 @@ public class StoneCluster extends GameShape{
 	public void addOneStone()
 	{
 		this.numberOfStones++;
-		add(new Ellipse2D.Double(30 +(this.numberOfStones%5)*10, 40 +(this.numberOfStones%6)*21, 10, 10));
+		add(new Ellipse2D.Double(30 +(this.numberOfStones%5)*10, 20 +(this.numberOfStones%6)*21, 10, 10));
 	//	super.getLabel().repaint();
 	}
 	
@@ -49,7 +49,7 @@ public class StoneCluster extends GameShape{
 		for(int i = 0; i < number; i++)
 		{
 			this.numberOfStones++;
-			add(new Ellipse2D.Double(30 +(this.numberOfStones%5)*10, 40 +(this.numberOfStones%6)*21, 10, 10));
+			add(new Ellipse2D.Double(30 +(this.numberOfStones%5)*10, 20 +(this.numberOfStones%6)*21, 10, 10));
 		}
 		
 	}

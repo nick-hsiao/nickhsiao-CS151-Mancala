@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - MancalaTest",
+            "request": "launch",
+            "mainClass": "MancalaTest",
+            "projectName": "CS151Project"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - MancalaBoardTest",
             "request": "launch",
             "mainClass": "MancalaBoardTest",
