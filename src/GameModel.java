@@ -59,6 +59,12 @@ public class GameModel {
 				}
 			}
 		}
+		
+		for (ChangeListener l : listeners) {
+			l.stateChanged(new ChangeEvent(this));
+		}
+		
+		
 	}
 
 	// if one side has 0 stone, the game end.
