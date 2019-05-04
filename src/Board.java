@@ -50,6 +50,7 @@ public class Board{
 			GameIcon iconStones = new GameIcon(stones);
 			final GameLabel jStones = new GameLabel(iconStones, stones);
 			jPit.add(BorderLayout.CENTER, jStones);
+			jPit.add(BorderLayout.NORTH, new JLabel("B" + (stones.getIndexInArray() % 7 + 1)));
 			// Add Mouse Listener
 			jStones.addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent e) {
@@ -82,6 +83,7 @@ public class Board{
 		GameIcon iconStonesManB = new GameIcon(stonesManB);
 		final GameLabel jStonesManB = new GameLabel(iconStonesManB, stonesManB);
 		jMancalaB.add(BorderLayout.CENTER, jStonesManB);
+		jMancalaB.add(BorderLayout.NORTH, new JLabel("Player B Mancala"));
 		// Add Mouse Listener
 		jMancalaB.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
@@ -107,6 +109,7 @@ public class Board{
 			GameIcon iconStones = new GameIcon(stones);
 			final GameLabel jStones = new GameLabel(iconStones, stones);
 			jPit.add(BorderLayout.CENTER, jStones);
+			jPit.add(BorderLayout.NORTH, new JLabel("A" + (stones.getIndexInArray() + 1)));
 			// Add mouse Listener
 			jStones.addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent e) {
@@ -138,6 +141,7 @@ public class Board{
 		GameIcon iconStonesManA = new GameIcon(stonesManA);
 		final GameLabel jStonesManA = new GameLabel(iconStonesManA, stonesManA);
 		jMancalaA.add(BorderLayout.CENTER, jStonesManA);
+		jMancalaA.add(BorderLayout.NORTH, new JLabel("Player A Mancala"));
 		// Add mouse listener
 		jMancalaA.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
@@ -230,7 +234,7 @@ public class Board{
 		buttonPanel.add(playerBScore);
 		frame.add(BorderLayout.NORTH, buttonPanel);
 
-		
+		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setVisible(true);
