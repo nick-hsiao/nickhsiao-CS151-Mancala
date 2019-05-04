@@ -145,6 +145,7 @@ public class MancalaBoardTest {
 		// ------------FINISH SETTING UP-----------------------------------------------
 
 		ArrayList<StoneCluster> sc = model.getStoneClusters();
+		model.setBackUp(sc);
 
 		// ----------ADD CHANGE LISTENERS (UPDATE
 		// VIEW)----------------------------------

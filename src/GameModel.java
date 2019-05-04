@@ -5,44 +5,59 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 public class GameModel {
+	private static final int NUMBER_OF_UNDO = 3;
+	private static final int ZERO = 0;
 	private ArrayList<StoneCluster> stoneClusters;
 	private ArrayList<ChangeListener> listeners;
 	private boolean playerATurn;
 	private int undoA;
 	private int undoB;
-	private static final int NUMBER_OF_UNDO = 3;
+	private int[] backUp;
 	private boolean isUndo;
+
 	/**
 	 * Constructs a GameModel
 	 */
 	public GameModel() {
 		// true is A turn and false is B turn
-		isUndo=false;
-		undoA=NUMBER_OF_UNDO;
-		undoB=NUMBER_OF_UNDO;
+		backUp = new int[14];
+		for (int i = 0; i < 14; i++) {
+			backUp[i] = ZERO;
+		}
+		isUndo = false;
+		undoA = NUMBER_OF_UNDO;
+		undoB = NUMBER_OF_UNDO;
 		playerATurn = true;
 		stoneClusters = new ArrayList<StoneCluster>(14);
 		for (int i = 0; i < 14; i++) {
 			stoneClusters.add(new StoneCluster(0, 0, true)); // add dummy clusters to start
 		}
-		// holes = new ArrayList<ShapePanel>();
 		listeners = new ArrayList<ChangeListener>();
 	}
-	
+
+	public void setBackUp(ArrayList<StoneCluster> list) {
+		for (int i = 0; i < list.size(); i++) {
+			backUp[i] = list.get(i).getNumberOfStones();
+		}
+	}
+
 	public void undo() {
-		if(playerATurn==true) {
-			if(undoA>0 && isUndo!= true) {
-				undoA-=1;
-				isUndo =true;
-				
+		if (playerATurn == true) {
+			if (undoA > 0 && isUndo != true) {
+				undoA -= 1;
+				isUndo = true;
+				for(int i=0;i<stoneClusters.size();i++) {
+					stoneClusters.get(i).setNumberOfStones(backUp[i]);
+				}
 			}
-			
-		}else {
-			if(undoB>0 && isUndo!= true) {
-				undoB-=1;
-				isUndo=true;
+		} else {
+			if (undoB > 0 && isUndo != true) {
+				undoB -= 1;
+				isUndo = true;
+				for(int i=0;i<stoneClusters.size();i++) {
+					stoneClusters.get(i).setNumberOfStones(backUp[i]);
+				}
 			}
-			
 		}
 	}
 
@@ -103,10 +118,10 @@ public class GameModel {
 	public void switchTurn() {
 		if (playerATurn == true) {
 			playerATurn = false;
-			isUndo=false;
+			isUndo = false;
 		} else {
 			playerATurn = true;
-			isUndo=false;
+			isUndo = false;
 		}
 	}
 
@@ -124,8 +139,16 @@ public class GameModel {
 		this.stoneClusters.set(index, sc);
 	}
 
+	public void createbackUp() {
+		for (int i = 0; i < 14; i++) {
+			backUp[i] = stoneClusters.get(i).getNumberOfStones();
+		}
+	}
+
 	public void pickUpStones(StoneCluster sc) {
 		// DO LOGIC OF MANCALA HERE?
+		createbackUp();
+
 		int stonesPickedUp = sc.getNumberOfStones();
 		if (stonesPickedUp == 0) {
 			System.out.println("Pick a Pit with STONES");
@@ -140,6 +163,7 @@ public class GameModel {
 			sc.zeroStones();
 			int currentIndex = sc.getIndexInArray() + 1; // starting point
 
+			// this while loop helps adding stones
 			while (currentIndex < sc.getIndexInArray() + 1 + stonesPickedUp) {
 
 				stoneClusters.get(currentIndex % stoneClusters.size()).addOneStone();
@@ -178,16 +202,15 @@ public class GameModel {
 				} else {
 					System.out.println("Player B won! ");
 				}
-
 			}
 
-			for (ChangeListener l : listeners) {
-				l.stateChanged(new ChangeEvent(this));
-			}
 		} else {
 			System.out.println("It's not your turn");
 		}
 
+		for (ChangeListener l : listeners) {
+			l.stateChanged(new ChangeEvent(this));
+		}
 	}
 
 	// --------------------GETTERS AND SETTERS-------------------------------
