@@ -62,9 +62,10 @@ public class MainMenu{
         frame.add(color3);
         frame.add(color4);
 
-        //frame.setLocationRelativeTo(null);
+        
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.pack();
+        frame.pack();
+        frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 
 
