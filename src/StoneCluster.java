@@ -3,8 +3,8 @@ import java.awt.geom.Ellipse2D;
 
 /**
  * StoneCluster is a the main GameShape class that holds the numberOfStones in a Pit
- * @author alehu
- *
+ * 
+ * @author huerta, hsiao, pham
  */
 public class StoneCluster extends GameShape{
 	int numberOfStones;

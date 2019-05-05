@@ -9,9 +9,9 @@ import java.util.Random;
 public class ColorStyle implements BoardStyle{
 
     /**
-     * color used for background of each panel
+     * the color used for background of each panel
      * 
-     * @return random color
+     * @return a random color
      */
     @Override
     public Color getColor() {

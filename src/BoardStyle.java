@@ -7,7 +7,6 @@ import java.awt.Color;
 public interface BoardStyle{
 
     /**
-     * 
      * @return color depending on theme
      */
     public Color getColor();

@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 
 /**
  * @author huerta, hsiao, pham
+ * 
  * Icon mainly for the StoneCluster class, to put on a JLabel
  */
 public class GameIcon implements Icon{

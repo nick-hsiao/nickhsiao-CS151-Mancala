@@ -11,7 +11,7 @@ import javax.swing.*;
 public class MainMenu{
 
     /**
-     * constructor for main menu
+     * constructor for main menu, allows user to choose style and number of stones to start with
      * 
      */
     public MainMenu(){

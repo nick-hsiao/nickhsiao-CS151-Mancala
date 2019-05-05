@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 
 /**
  * Defines the shape of the Pit
+ * 
  * @author huerta, hsiao, pham
  *
  */

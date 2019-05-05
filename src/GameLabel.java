@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 
 /**
  * GameLabel is a JLabel that will hold an Icon, mainly an Icon of a StoneCluster
+ * 
  * @author huerta, hsiao, pham
  *
  */

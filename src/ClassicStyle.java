@@ -8,7 +8,7 @@ import java.awt.Color;
 public class ClassicStyle implements BoardStyle{
 
     /**
-     * color used for background of each panel
+     * the color used for background of each panel
      * 
      * @return light gray color
      */

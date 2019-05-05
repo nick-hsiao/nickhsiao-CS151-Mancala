@@ -6,8 +6,8 @@ import javax.swing.JPanel;
 
 /**
  * The Panel that holds a GameShape(Pit/Mancala/StoneCluster) which can be put onto a Jframe
+ * 
  *@author huerta, hsiao, pham
- *
  */
 public class ShapePanel extends JPanel{
 	

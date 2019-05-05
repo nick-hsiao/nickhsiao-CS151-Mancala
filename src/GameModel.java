@@ -4,7 +4,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 /**
- * model class holds game data and logic
+ * model class holds game data and logic, notifies view when udpated
  * 
  * @author hsiao,huerta,pham
  */

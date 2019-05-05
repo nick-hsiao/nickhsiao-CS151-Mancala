@@ -7,8 +7,8 @@ import javax.swing.JPanel;
 
 /**
  * GameShape is a congregate that can hold many shapes
+ * 
  * @author huerta, hsiao, pham
- *
  */
 public class GameShape{
 	private Path2D.Double path;

@@ -1,7 +1,11 @@
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
+/**
+ * adapter class provides default implementation of all mouse listener methods
+ * 
+ * @author huerta, hsiao, pham
+ */
 public class MouseAdapter implements MouseListener{
 
 	@Override
