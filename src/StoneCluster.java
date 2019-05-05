@@ -2,9 +2,9 @@ import java.awt.geom.Ellipse2D;
 
 
 /**
+ * StoneCluster is a the main GameShape class that holds the numberOfStones in a Pit
  * 
- * @author alehu
- *
+ * @author huerta, hsiao, pham
  */
 public class StoneCluster extends GameShape{
 	int numberOfStones;
@@ -31,7 +31,6 @@ public class StoneCluster extends GameShape{
 
 	/**
 	 * Add one stone to the cluster
-	 * ---MAY NOT BE USED--
 	 */
 	public void addOneStone()
 	{
@@ -42,7 +41,7 @@ public class StoneCluster extends GameShape{
 	
 	/**
 	 * Add a specified number of stones to the cluster
-	 * @param number
+	 * @param number - the number of stones to add
 	 */
 	public void addNumberOfStones(int number)
 	{
@@ -54,15 +53,7 @@ public class StoneCluster extends GameShape{
 		
 	}
 	
-	/**
-	 * subtracts one stone from the cluster
-	 * ----NOT GONNA BE USED?----
-	 */
-	public void subtractOneStone()
-	{
-		this.numberOfStones--;
-	}
-	
+
 	/**
 	 * Zero's out the stones in this cluster
 	 */

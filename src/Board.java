@@ -59,12 +59,8 @@ public class Board {
 			//add mouse listener to each pit for player to "take a turn" 
 			jStones.addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent e) {
-					System.out.println(
-							"pitB" + (stones.getIndexInArray() % 7 + 1) + " @index: " + stones.getIndexInArray());
-					System.out.println("Stones before click: " + stones.getNumberOfStones());
+					
 					model.pickUpStones(stones);
-					System.out.println("Stones after click: " + stones.getNumberOfStones());
-
 				}
 			});
 			// add to stone cluster to model array
@@ -117,11 +113,8 @@ public class Board {
 			//add mouse listener to each pit for player to "take a turn"
 			jStones.addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent e) {
-					System.out
-							.println("pitA" + (stones.getIndexInArray() + 1) + " @index: " + stones.getIndexInArray());
-					System.out.println("Stones before click: " + stones.getNumberOfStones());
+					
 					model.pickUpStones(stones);
-					System.out.println("Stones after click: " + stones.getNumberOfStones());
 
 				}
 			});
