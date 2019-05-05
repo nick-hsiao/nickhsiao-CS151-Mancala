@@ -1,8 +1,18 @@
 import java.awt.Color;
 import java.util.Random;
 
+/**
+ * concrete class implements strategy
+ * 
+ * @author hsiao,huerta,pham
+ */
 public class ColorStyle implements BoardStyle{
 
+    /**
+     * color used for background of each panel
+     * 
+     * @return random color
+     */
     @Override
     public Color getColor() {
         Random rand = new Random();
