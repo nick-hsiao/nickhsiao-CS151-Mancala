@@ -185,6 +185,11 @@ public class GameModel {
 
 			// this while loop helps adding stones
 			while (currentIndex < sc.getIndexInArray() + 1 + stonesPickedUp) {
+				if (currentIndex%14 == 6 && !playerATurn || currentIndex%14 == 13 && playerATurn){
+					currentIndex++;
+					stonesPickedUp++;
+					continue;
+				}
 
 				stoneClusters.get(currentIndex % stoneClusters.size()).addOneStone();
 
